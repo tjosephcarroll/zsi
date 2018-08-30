@@ -1,1 +1,6 @@
-#
+FROM docker.iscinternal.com/intersystems/iris:2018.2.0-stable
+
+FROM apache/zeppelin:0.8.0
+COPY --from=0 ./usr/irissys/dev/java/lib/JDK18/ /iris
+COPY jpmml-sparkml-package-1.1-SNAPSHOT.jar /iris/jpmml-sparkml-package-1.1-SNAPSHOT.jar
+# do something here to auto configure spark dependencies
